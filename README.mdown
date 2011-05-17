@@ -1,3 +1,11 @@
 # Data Independence Guidelines
 
 Data Independence Guidelines (DIG) collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.
+
+## How To Send Feedback
+
+To send feedback on this document, you might want to [create an issue](https://github.com/karlcow/Data-Independence-Guidelines/issues). You can also send an email to the [publicly archived](http://lists.w3.org/Archives/Public/www-archive/ "www-archive@w3.org Mail Archives") mailing-list [www-archive@w3.org](mailto:www-archive@w3.org).
+
+## Thanks
+
+The document is using [ReSpec.js](http://dev.w3.org/2009/dap/ReSpec.js/documentation.html "ReSpec.js — W3C Specification Writing Tool") from [Robin Berjon](http://berjon.com/ "Welcome! — Robin Berjon")
