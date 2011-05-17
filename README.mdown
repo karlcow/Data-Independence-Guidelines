@@ -1,6 +1,6 @@
 # Data Independence Guidelines
 
-Data Independence Guidelines (DIG) collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.
+[Data Independence Guidelines](http://www.la-grange.net/2011/05/16/freedata/data-independence "Data Independence Guidelines") (DIG) collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.
 
 ## How To Send Feedback
 
