@@ -1,76 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Data Independence Guidelines</title>
-    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
-    <script src='http://dev.w3.org/2009/dap/ReSpec.js/js/respec.js' class='remove'></script>
-    <script class='remove'>
-      var respecConfig = {
-          specStatus:           "unofficial",
-          // shortName:            "dig",
-          subtitle   :  "A Survival Guide To Assess Data Independence",
-          // publishDate:  "2009-08-06",
-          copyrightStart: "2009",
-          // previousPublishDate:  "1977-03-15",
-          // previousMaturity:  "WD",
-          previousURI: "http://www.la-grange.net/2009/02/16/data-independence",
-          edDraftURI:           "http://www.la-grange.net/2011/05/16/freedata/data-independence",
-          // lcEnd: "2009-08-05",
-          extraCSS:             ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
-          editors:  [
-              { name: "Karl Dubost", url: "http://www.la-grange.net/karl/",
-             // company: "Opera Software", companyURL: "http://opera.com/"
-             },
-          ],
-          authors:  [
-             { name: "Olivier Théreaux", url: "http://artbeat.me/",
-          //      company: "Your Company", companyURL: "http://example.com/" 
-          },
-          ],
-          wg:           "Barn Working Group",
-          wgURI:        "http://www.la-grange.net/",
-          wgPublicList: "www-archive@w3.org",
-          wgPatentURI:  "",
-      };
-    </script>
-  </head>
-  <body>
-    <section id='abstract'>
-      <p>Data Independence And Survival Best Practices collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.</p>
+<head>
+<title>Data Independence Guidelines</title>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+<script src='http://dev.w3.org/2009/dap/ReSpec.js/js/respec.js' class='remove'></script>
+<script class='remove'>
+var respecConfig = {
+specStatus:           "unofficial",
+// shortName:            "dig",
+subtitle   :  "A Survival Guide To Assess Data Independence",
+// publishDate:  "2009-08-06",
+copyrightStart: "2009",
+// previousPublishDate:  "1977-03-15",
+// previousMaturity:  "WD",
+previousURI: "http://www.la-grange.net/2009/02/16/data-independence",
+edDraftURI:           "http://www.la-grange.net/2011/05/16/freedata/data-independence",
+// lcEnd: "2009-08-05",
+extraCSS:             ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
+editors:  [
+  { name: "Karl Dubost", url: "http://www.la-grange.net/karl/",
+ // company: "Opera Software", companyURL: "http://opera.com/"
+ },
+],
+authors:  [
+ { name: "Olivier Théreaux", url: "http://artbeat.me/",
+//      company: "Your Company", companyURL: "http://example.com/" 
+},
+],
+wg:           "Barn Working Group",
+wgURI:        "http://www.la-grange.net/",
+wgPublicList: "www-archive@w3.org",
+wgPatentURI:  "",
+};
+</script>
+</head>
 
-      <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
-      <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text">Data Independence Guidelines</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.la-grange.net/karl/" rel="cc:attributionURL">Karl Dubost</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.<br />
-      Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://www.la-grange.net/2011/05/16/freedata/data-independence" rel="dc:source">www.la-grange.net</a>.</p>
+<body>
+
+<section id='abstract'>
+    <p>Data Independence And Survival Best Practices collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.</p>
+
+<p>To send feedback on this document, you might want to <a href="https://github.com/karlcow/Data-Independence-Guidelines/issues">create an issue</a>. You can also send an email to the <a href="http://lists.w3.org/Archives/Public/www-archive/" title="www-archive@w3.org Mail Archives"><strong>publicly</strong> archived</a> mailing-list <a href="mailto:www-archive@w3.org">www-archive@w3.org</a>.</p>
+</section>
+
+
+<section id="convention" class="informative">
+    <h2>Typographic Convention</h2>
+    <p class="issue">Issues are identified by yellow boxes and a link to the issue tracker.</p>
+
+    <p class="note">Notes are identified by a green box</p>
+</section>
+
+<section id="vocabulary" class="informative">
+    <h2>Vocabulary</h2>
+    <h3 id="what-data">What are data?</h3>
+    <p>Along this document, we consider data being any kind of content produced by a person and disposed on the Web. It could be photographs, drawings, text, code, etc. We also include the enriched data. When data are put online, they will be enriched through human or automatic interactions (example: tagging on photographs). These enriched data are part of the personal data value, which is worth keeping in the longterm.</p>
+    <h3 id="what-services">What are services?</h3>
+    <p>Services could be a simple blog, a social network, an online simple backup system, a messenger communication tool, etc. Some of these services are accessed through a browser, some through specific clients or Web applications. Many users are also unaware of what is done with their data and how some different online services belong to some unique data aggregator companies.</p>
+    <p class="issue"><a href="https://github.com/karlcow/Data-Independence-Guidelines/issues/1">ISSUE-1</a>: Taxonomy of Online Services</p>
+    <h3 id="data-context">Data Sharing Contexts</h3>
+    <p>Using services and exposing data comes in many different contexts. Some people are using their own computers, some people are sharing a computer at home or in a public space such as a classroom or an internet cafe. This creates more challenges for both one's privacy and one's data independence. It is not always possible to save data locally when traveling and accessing or uploading data online.</p>
+    <ul>
+    <li>one user - one <strong>owned</strong> computer - one browser</li>
+    <li>one user - one <strong>owned</strong> computer - multiple browsers</li>
+    <li>multiple users - one <strong>shared</strong> computer - one shared browser</li>
+    <li>multiple users - multiple <strong>shared</strong> computers - multiple browsers</li>
+    </ul>
+</section>
+
+<section id="user-bp">
+
+<h2>Users Best Practices</h2>
+
+<section id="data-local-copy">
+<h3>Data Local Copy</h3>
+<p class="note">When possible always keep a local copy of your data.</p>
+
+<p>It is very tempting to rely on the distant services to keep copy of your own data when you lack of space on your own personal computer. This is a dangerous solution without redundancy of this copy. If you can't have a local copy, you should at least duplicate your data on another service.</p>
+<p>Sometimes there are no obvious ways of keeping data.</p>
+<p>example: When uploading photographs on a service, do not get rid of your own data locally.</p>
+</section>
+
+<section id="remote-backup"><h3>Remote Backup</h3>
+<p class="note">Whenever possible, always keep a secure remote backup of your data.</p>
+
+<p>As a counterpart to the good practice of always having a local duplicate of data remotely held in a data silo, it is generally wise to organize remote backup of the kind of data you would usually only keep on a local computer. A local computer can be stolen, crash, break, burn or be flooded. In the latter two cases, the data you may have backed up on any media in your house or office is likely to be destroyed. too.</p>
+
+<p>In the words of <cite>Linus Torvalds</cite>: <q>Only wimps use tape backup: _real_ men just upload their important stuff on ftp, and let the rest of the world mirror it ;)</q>. His strategy of course only works for non-sensitive data, although some hackers have been known to upload heavily-encrypted data to bittorent.</p>
+
+<p>For the rest of us, remote backup can be achieved, for example, by renting cheap server space, using a webmail service with plenty of disk space, or register on a remote backup service.</p>
+</section>
+</section>
+
+<section id="service-bp">
+    <h2>Services Best Practices</h2>
+    <section id="data-export">
+    <h3>Data Export</h3>
+    <p class="note">The service MUST provide a data export feature.</p>
+
+    <p>Users of services upload a large quantity of personal data. These data are essential. Services must provide a data export feature for giving the user the freedom to archive his/her own data. This feature exists in some social bookmarking services such as blogmarks.net and delicious.</p>
+
+    <p class="note">The service SHOULD provide a reminder for encouraging users to export their data.</p>
+
+    <p>Users are not necessary aware of the avaibility of data export features. A reminder is a good way for users to discover the feature and to remember to do regular export. This becomes critical when the volume of data is very large such as photo hosting sites.</p>
     </section>
 
-    
-    <section id="convention" class="informative">
-        <h2>Typographic Convention</h2>
-        <p class="issue">Issues are identified by yellow boxes and a link to the issue tracker.</p>
+    <section id="data-export-format">
+    <h3>Data Export Format</h3>
 
-        <p class="note">Notes are identified by a green box</p>
-    </section>
+    <p class="note">Data export feature MUST be done in a publicly described format.</p>
 
-    <section id="vocabulary" class="informative">
-      <h2>Vocabulary</h2>
-      <h3 id="what-data">What are data?</h3>
-      <p>Along this document, we consider data being any kind of content produced by a person and disposed on the Web. It could be photographs, drawings, text, code, etc. We also include the enriched data. When data are put online, they will be enriched through human or automatic interactions (example: tagging on photographs). These enriched data are part of the personal data value, which is worth keeping in the longterm.</p>
-      <h3 id="what-services">What are services?</h3>
-      <p>Services could be a simple blog, a social network, an online simple backup system, a messenger communication tool, etc. Some of these services are accessed through a browser, some through specific clients or Web applications. Many users are also unaware of what is done with their data and how some different online services belong to some unique data aggregator companies.</p>
-      <p class="issue"><a href="https://github.com/karlcow/Data-Independence-Guidelines/issues/1">ISSUE-1</a>: Taxonomy of Online Services</p>
-      <h3 id="data-context">Data Sharing Contexts</h3>
-      <p>Using services and exposing data comes in many different contexts. Some people are using their own computers, some people are sharing a computer at home or in a public space such as a classroom or an internet cafe. This creates more challenges for both one's privacy and one's data independence. It is not always possible to save data locally when traveling and accessing or uploading data online.</p>
-      <ul>
-      <li>one user - one <strong>owned</strong> computer - one browser</li>
-      <li>one user - one <strong>owned</strong> computer - multiple browsers</li>
-      <li>multiple users - one <strong>shared</strong> computer - one shared browser</li>
-      <li>multiple users - multiple <strong>shared</strong> computers - multiple browsers</li>
-      </ul>
-    </section>
-    
-    <section class='appendix'>
-      <h2>Acknowledgements</h2>
-      <p>Many thanks to <a href="http://artbeat.me/">Olivier Théreaux</a> for the first review of the document.</p>
-    </section>
-  </body>
+    <p>For users to be able to reuse exported data, the data export format must be described. It will give the possibility to third party services, software developers or users themselves to develop their own converter program for reusing the data.</p>
+
+    <p class="note">Data export feature SHOULD be done in a open format.</p>
+
+    <p>Users will benefit of having their data exported in an open format. More applications developers will be able to develop converters or even just reusing the user data such as a local archiving and search engine system on the user computer.</p>
+</section>
+
+<section id="enriched-data">
+    <h3>Enriched Data Exportation</h3>
+
+    <p class="note">Data Export Feature SHOULD export the data and the enriched data.</p>
+
+    <p>Once uploaded on a services, data continue to be enriched through user interactions (ex: keywords tagging) or automatically (ex: geographical names geolocation). Sometimes users will use a particular service because of this richer interaction. It is important for users to keep their enriched data.</p>
+
+    <p>For example, there are third parties export program for photographs hosting services which keep the enriched data.</p>
+</section>
+
+<section id="in-house-backup">
+        <h3>Services In-House Backup Solutions</h3>
+
+    <p class="note">The service MUST describe its own data backup policy.</p>
+
+    <p>It is important for users to be aware of the data backup policy of the services. What is happening when there is a failure in the service such as hard drive crash. Will the data be saved once a week, once a day? How long will it take for the backuped data to be put online after the crash?</p>
+
+    <p>The bookmarking service Magnolia has lost all users data in January 2009.</p>
+</section>
+
+<section id="backup-removal">
+    <h3>Data Back-Up Removal</h3>
+
+    <p class="note">The service MUST ensure to have the user agreement before releasing historical data.</p>
+
+    <p>Personal data have an history. Users may have chosen to remove some data which were available publicly in the past. If a service gives access to historical data, it must get the user agreements before making these data available to the public.</p>
+
+    <p>Google recently released their 2000 index, but doing so they have been careful to respect today's accessibility of data. People can change their own policy for accessing their data.</p>
+</section>
+
+<section id="access-control">
+    <h3>Data Access Control</h3>
+
+    <p class="note">The service MUST provide a fine access control on personal data?</p>
+
+    <p>It is important for users to have the ability to control who/what has access to data. Closed social networks offer a very basic level of granularity (me, friends, public) which is unfortunately not sufficient. It is also very hard for users to control what can access to their data. Putting data online doesn't mean that all applications and softwares should be able to access it. One might want to block the indexing of pages by search engines bots. One might want to block a specific user agent.</p>
+</section>
+
+<section id="data-license">
+    <h3 >Data License at Upload Time</h3>
+
+    <p class="note">Does the service understands the license you have specified on your own data.</p>
+
+    <p>For example, you specify a license in a Web page, does the service displays this license.</p>
+</section>
+
+<section id="license-choice">
+        <h3>Data License Choice</h3>
+
+    <p class="note">Can you specify the Data License once you have uploaded your data?</p>
+
+</section>
+
+<section id="service-license-policy">    
+    <h3 id="services_data_license_policy">Services Data License Policy</h3>
+
+    <p class="note">When you upload your data, does the service make it explicit what is their policy with regards to licenses?</p>
+</section>
+</section>
+
+<section id="independence-grid">
+    <h2>Services Data Independence Grid</h2>
+    <p class="issue">We could create a table showing how different services fulfil these requirements.</p>
+</section>
+
+<section id="format-list">
+    <h2>Formats List</h2>
+    <p class="issue">There is a need for a list of data formats helping the user to keep its data. For example, a full export of a blog could be done with the Atom Format. The description of one's profile on a service such as MySpace or Facebook could be done with FOAF.</p>
+</section>    
+
+<section class='appendix'>
+<h2>Acknowledgements</h2>
+<p>Many thanks to <a href="http://artbeat.me/">Olivier Théreaux</a> for the first review of the document.</p>
+</section>
+</body>
 </html>
