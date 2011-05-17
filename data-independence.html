@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Independence Guidelines</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+    <script src='http://dev.w3.org/2009/dap/ReSpec.js/js/respec.js' class='remove'></script>
+    <script class='remove'>
+      var respecConfig = {
+          specStatus:           "unofficial",
+          // shortName:            "dig",
+          subtitle   :  "A Survival Guide To Assess Data Independence",
+          // publishDate:  "2009-08-06",
+          copyrightStart: "2009",
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+          previousURI: "http://www.la-grange.net/2009/02/16/data-independence",
+          edDraftURI:           "http://www.la-grange.net/2011/05/16/freedata/data-independence",
+          // lcEnd: "2009-08-05",
+          extraCSS:             ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
+          editors:  [
+              { name: "Karl Dubost", url: "http://www.la-grange.net/karl/",
+             // company: "Opera Software", companyURL: "http://opera.com/"
+             },
+          ],
+          authors:  [
+             { name: "Olivier Théreaux", url: "http://artbeat.me/",
+          //      company: "Your Company", companyURL: "http://example.com/" 
+          },
+          ],
+          wg:           "Barn Working Group",
+          wgURI:        "http://www.la-grange.net/",
+          wgPublicList: "www-archive@w3.org",
+          wgPatentURI:  "",
+      };
+    </script>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>Data Independence And Survival Best Practices collects ideas around data independence. How to better share your data by promoting reusability, standards and clear policies. A series of best practices and tools for both the users (individual or structure) and service providers will be given.</p>
+
+      <p><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />
+      <span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text">Data Independence Guidelines</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.la-grange.net/karl/" rel="cc:attributionURL">Karl Dubost</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.<br />
+      Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://www.la-grange.net/2011/05/16/freedata/data-independence" rel="dc:source">www.la-grange.net</a>.</p>
+    </section>
+    
+    <section id="vocabulary" class="informative">
+      <h2>Vocabulary</h2>
+      <h3 id="what-data">What are data?</h3>
+      <p>Along this document, we consider data being any kind of content produced by a person and disposed on the Web. It could be photographs, drawings, text, code, etc. We also include the enriched data. When data are put online, they will be enriched through human or automatic interactions (example: tagging on photographs). These enriched data are part of the personal data value, which is worth keeping in the longterm.</p>
+      <h3 id="what-services">What are services?</h3>
+      <p>Services could be a simple blog, a social network, an online simple backup system, a messenger communication tool, etc. Some of these services are accessed through a browser, some through specific clients or Web applications. Many users are also unaware of what is done with their data and how some different online services belong to some unique data aggregator companies.</p>
+      <h3 id="data-context">Data Sharing Contexts</h3>
+      <p>Using services and exposing data comes in many different contexts. Some people are using their own computers, some people are sharing a computer at home or in a public space such as a classroom or an internet cafe. This creates more challenges for both one's privacy and one's data independence. It is not always possible to save data locally when traveling and accessing or uploading data online.</p>
+      <ul>
+      <li>one user - one <strong>owned</strong> computer - one browser</li>
+      <li>one user - one <strong>owned</strong> computer - multiple browsers</li>
+      <li>multiple users - one <strong>shared</strong> computer - one shared browser</li>
+      <li>multiple users - multiple <strong>shared</strong> computers - multiple browsers</li>
+      </ul>
+    </section>
+    
+    <section id="convention"><h2>Typographic Convention</h2>
+        <p class="issue">Issues are identified by yellow boxes and a link to the issue tracker.</p>
+
+        <p class="note">Notes are identified by a green box</p>
+    </section>
+    
+    <section class='appendix'>
+      <h2>Acknowledgements</h2>
+      <p>Many thanks to <a href="http://artbeat.me/">Olivier Théreaux</a> for the first review of the document.</p>
+    </section>
+  </body>
+</html>
